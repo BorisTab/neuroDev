@@ -1,0 +1,24 @@
+.user_evaluated{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.checked{
+    border-bottom:1px solid rgba(0,0,0,0.20);
+}
+.user_evaluated>img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.name_user_evaluated{
+    padding: 10px;
+    max-width: 30vw;
+    font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}

@@ -1,0 +1,31 @@
+.navigation{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    background: #006989;
+    flex: 0 0 auto;
+    align-items: center;
+}
+.currentUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.title, .name{
+    color: #fff;
+    font-size: 20px;
+}
+.title {
+    font-size: 40px;
+}
+.avatar > img{
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#avatar{
+    display: none;
+}
