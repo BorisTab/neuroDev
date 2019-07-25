@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Header.css';
 import CurrentUser from './CurrentUser';
-import DropDownMenu from 'components/DropDownMenu';
+import DropDownMenu from 'components/Header/DropDownMenu';
 
 export default class Header extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class Header extends Component {
     this.setState({
       menuCheck: !(this.state.menuCheck),
     });
-  }
+  };
 
   render() {
     const {menuCheck} = this.state;

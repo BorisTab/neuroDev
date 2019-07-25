@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       authorized: false,
-      evaluatedCLickId: 0,
+      evaluatedCLickId: 2,
     };
   };
 

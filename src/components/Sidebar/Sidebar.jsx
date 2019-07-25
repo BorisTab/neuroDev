@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import './Sidebar.css';
 
+import ParamSlider from 'components/ParamSlider';
+
 export default class Sidebar extends PureComponent {
   constructor(props) {
     super(props);
@@ -14,18 +16,16 @@ export default class Sidebar extends PureComponent {
     }));
   }
   render() {
-    console.log(this.state.evalId);
+    const paramsName = ['Partnership', 'Joint', 'Responsibility', 'Kindness',
+      'Trust', 'Anger', 'Irritability',
+      'Compliance', 'Sociopathy', 'Isolation'];
     if (this.state.evalId) {
       return (
         <div className="sidebar">
           <form className="sidebarForm">
             <div className="params">
-              <div className="paramSlider">
-                <h3>Partnership</h3>
-                <input className="slider"
-                  type="range" min='0' max='10' value="0"/>
-                <p className="value">0</p>
-              </div>
+              {paramsName.map((paramName) => <ParamSlider
+                key={paramsName.indexOf(paramName)} name={paramName}/>)}
               <input className="uidToServer"
                 type="hidden" value={this.state.evalId}/>
             </div>

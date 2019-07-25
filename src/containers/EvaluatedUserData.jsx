@@ -11,7 +11,11 @@ export default class EvaluatedUserData extends Component {
 
   componentDidMount() {
     const serverIp = '127.0.0.1:8000';
-    fetch(`http://${serverIp}/eval/get/`, {mode: 'cors'})
+    fetch(`/eval/get/`, {
+      // mode: 'cors',
+      withCredentials: true,
+      credentials: 'same-origin',
+    })
         .then((response) => response.json())
         .then((response) => {
           this.setState({
@@ -25,7 +29,7 @@ export default class EvaluatedUserData extends Component {
     const base64 = 'data:image/png;base64,';
     const {userClick} = this.props;
     return (
-      <div className="evaluated">
+      <div>
         {this.state.evaluatedUser.map((user) => <EvaluatedUser
           key={user.uid}
           uid={user.uid}

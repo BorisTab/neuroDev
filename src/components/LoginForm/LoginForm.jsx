@@ -18,6 +18,7 @@ export default class loginForm extends Component {
       send: false,
       vkAuth: false,
       sendData: {},
+      loading: false,
     };
   };
   handleChangeUsername = (e) => {
@@ -28,6 +29,9 @@ export default class loginForm extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({
+      loading: true,
+    });
     const sendData = {
       username: this.state.username,
       password: this.state.password,
@@ -42,16 +46,26 @@ export default class loginForm extends Component {
   handleVkClick = () => {
     this.setState({vkAuth: true});
   };
+  loadingToFalse = () => {
+    this.setState({
+      loading: false,
+    });
+  };
   render() {
+    const signIn = 'Sign In';
+    const signing = 'Signing in...';
     return (
       <div className="forms" id="particles-js">
         {this.state.send ? <SendData
-                             data={this.state.sendData}
-                             sendToFalse={this.sendToFalse}
-                             handler="user/login/"
-                             handleAuth={this.props.handleAuth}/> : null}
-        {this.state.vkAuth ? <VkAuth handleAuth={this.props.handleAuth}/> : null}
-        <form name="form_login" className="form login" onSubmit={this.handleSubmit}>
+          data={this.state.sendData}
+          sendToFalse={this.sendToFalse}
+          handler="user/login/"
+          handleAuth={this.props.handleAuth}
+          loadingToFalse={this.loadingToFalse}/> : null}
+        {this.state.vkAuth ? <VkAuth
+          handleAuth={this.props.handleAuth}/> : null}
+        <form name="form_login" className="form login"
+          onSubmit={this.handleSubmit}>
           <h1 className="form-title">Auth</h1>
           <div className="form-group">
             <input type="text" className="form-input"
@@ -74,7 +88,7 @@ export default class loginForm extends Component {
               <FontAwesomeIcon icon={['fab', 'vk']} />
             </div>
             <button type="submit" className="login-button">
-              Sign in
+              {this.state.loading ? signing : signIn}
             </button>
           </div>
         </form>
